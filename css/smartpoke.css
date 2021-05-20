@@ -1,0 +1,405 @@
+html{
+    background: #7acbe1;
+    text-align: center;
+    /* font-family: 'M PLUS Rounded 1c', sans-serif; */
+
+}
+
+/* @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c'); */
+
+
+@media screen and (max-width: 760px) {
+     /* 760pxの幅まで適用される(モバイルの時のレイアウト) */
+    .frame {
+      /* モバイルの時は、スマートフォンのフレーム画像を表示しない */  
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+     /* 幅が760pxより大きい時に適用される(PC用のレイアウト) */
+    .frame {
+      /* スマホのフレーム画像を上下中央に表示 */
+      display: flex;
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 450px;
+      height: 787px;}
+
+      .frame-img {
+        justify-content: center;
+        position: relative;
+        margin-top: 20px;
+        /* margin-left: -1.3px; */
+      }
+
+      /* コンテンツをスマホのフレーム内に収まるように上下中央に表示 */
+      .main {
+        width: 376px;
+        height: 603px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        /* z-index: 10; */
+      }
+    }
+
+button {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  background: #67c5ff;
+  color: white;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+button:hover {
+  color:#67c5ff;
+  background: white;
+  border: solid 2px #67c5ff;
+  
+}
+
+
+#rule_box{
+  width: 25vw;
+  position: absolute;
+  top: 50px;
+  right: 3%;
+  text-align: left;
+  font-size: 0.8em;
+  font-weight: bold;
+  z-index: 200;
+}
+
+#point{
+  font-size: 3em;
+}
+
+.li_hidden{
+  display: none;
+}
+
+
+
+
+.inframe_h100{
+width: 100%;
+height: 100%;
+position: absolute;
+border-radius: 5px;
+    }
+
+.inframe_h80{
+width: 100%;
+height: 80%;
+overflow: hidden;
+    }
+
+.inframe_h20{
+width: 100%;
+height: 20%;
+    }
+
+#game_over{
+    /* display: none; */
+    /* background: rgb(197, 196, 196); */
+    /* color: white;  */
+    background-color: white;
+    font-weight: bold;
+    position: absolute;
+    z-index: 20;
+}
+
+#game_over img{
+  width: 100%;
+  height:auto;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+#game_over h1{
+  margin-top: 20px;
+}
+
+
+.modal_wrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color:white; */
+  /* opacity: 0.9; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.modal_inside{
+  width: 80%;
+  height: 30%;
+  background-color: white;
+  opacity:0.9;
+  /* margin-top: 40%; */
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  object-fit: cover;
+}
+
+
+.modal_inside img{
+  width: 40%;
+  height: auto;
+  animation: logo_title 2s  infinite;
+  opacity: 1;
+}
+
+@keyframes poyoyon3 {
+  0%, 40% {
+    transform: skew(0deg, 0deg);
+  }
+  5% {
+    transform: skew(5deg, 5deg);
+  }
+  10% {
+    transform: skew(-4deg, -4deg);
+  }
+  15% {
+    transform: skew(3deg, 3deg);
+  }
+  20% {
+    transform: skew(-2deg, -2deg);
+  }
+  25% {
+    transform: skew(1deg, 1deg);
+  }
+  30% {
+    transform: skew(-0.6deg, -0.6deg);
+  }
+  35% {
+    transform: skew(0.3deg, 0.3deg);
+  }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+#scene020{
+    position: absolute;
+    /* background: chartreuse; */
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* scene020 ロゴぽよぽよ*/
+.logo_title  {
+  animation: logo_title 2s ease-out infinite;
+  opacity: 1;
+}
+@keyframes logo_title {
+  0%, 40%, 60%, 80% {
+    transform: scale(1.0);
+  }
+  50%, 70% {
+    transform: scale(0.95);
+  }
+}
+
+/* 森を歩いているところ */
+#scene040{
+  display: none;
+    position: absolute;
+    /* background: coral; */
+    background-color: white;
+     z-index: 95;
+}
+
+#scene040 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+   
+}
+
+/*タイピングアニメーションのcss*/
+.question1 {
+  display: inline-block;
+  width: 222px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 400;
+  border-right: 2px solid transparent;
+  animation: typing 2.8s steps(28), caret 0.2s steps(1) infinite;
+  background-color: white;
+  opacity: 0.9;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes caret {
+  50% {
+    border-right-color: currentColor;
+  }
+} 
+/* どんポケモンにであえるかな？ */
+#scene041{
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  z-index: 96;
+}
+
+
+/* 何かがでてきた！text */
+/* #scene050{ */
+    /* z-index: 100; */
+    /* position: absolute; */
+    /* bottom: 10%; */
+    /* color: black; */
+    /* text-align: center; */
+    /* margin: 0 60px; */
+  /* } */
+
+#scene050{
+  z-index: 80;
+}
+
+
+/* "かくにんする" */
+.check_it {
+  /* z-index: 96; */
+  opacity: 0;
+  animation: appeare 0s ease  3.5s 1 normal forwards running;
+  /* テスト用設定、本番は4秒にする */
+}
+
+@keyframes appeare {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fight_or_not{
+  margin-top: 20px;
+}
+
+
+#scene060{
+  display: none;
+  position: absolute;
+  /* background: chartreuse; */
+  background-color: white;
+  z-index: 100;
+}
+
+.poke_img{
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* →する、どのボールを投げる？ */
+#scene070{
+  display: none;
+    position: absolute;
+    /* background: seagreen; */
+    background-color: white;
+    z-index: 90;
+}
+
+
+#scene070-2{
+    display: flex;
+    position: absolute;
+    /* background: pink; */
+    background-color: white;
+    bottom: 0;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 90;
+}
+
+
+.ball_box{
+    width: 25%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ball_box img{
+    width: 100%;
+    height: auto;
+    border-radius: 48%; 
+}
+
+.ball_box img:hover{
+    opacity: 0.5;
+}
+
+.ball_box span{
+  font-size: smaller smaller; 
+  font-weight: bolder;
+}
+
+.ball_last{
+  display: none;
+}
+
+#result_box1{
+  z-index: 20;
+}
+
+.ball_sil img{
+  opacity: 0.8;
+}
+
+
+#result_box2{
+  z-index: 19;
+}
+
+
+#poke_master{
+  z-index: 25;
+  background-color: white;
+}
+
+#poke_master h1{
+ color: red;
+}
+
+
+.poke_master_inside img{
+  width: 100%;
+  object-fit: cover;
+}

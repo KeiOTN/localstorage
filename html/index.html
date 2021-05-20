@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/smartpoke.css">
+    <title>スマホサイズポケGOジャンケン</title>
+</head>
+
+<body>
+    <div class="frame">
+        <!-- スマホのフレーム画像 -->
+        <img alt="" src="../img/frame.png" class="frame-img">
+    </div>
+
+    <div id="rule_box">
+        <ul>
+            <li class="li_1">タイトルロゴを押してスタート！</li>
+            <li class="li_2 li_hidden">ボールが0になるか、<br>ポイントが0になったらゲームオーバーだよ</li>
+            <li class="li_3 li_hidden">ゲット成功：50ポイントふえる</li>
+            <li class="li_4 li_hidden">逃げられた：20ポイントへる</li>
+            <li class="li_5 li_hidden">ボールが残っていたら別のポケモンもゲットできるよ</li>
+            <li class="li_6 li_hidden">250ポイントでゲームクリア！</li>
+            <li class="li_7 li_hidden">ポイント: <text id="point">100</text></li>
+            <button id="save" class="li_hidden">save</button>
+            <button id="save-and-return" class="li_hidden">ポイント保存して最初に戻る</button>
+            <button id="restart3" class="li_hidden">ポイントリセットしてはじめから</button>
+        </ul>
+    </div>
+
+
+
+
+
+    <ion-nav class="main" [root]="rootPage">
+        <!-- 以下、ゲーム内容 -->
+
+        <!-- ゲームオーバー画面 -->
+        <div id="game_over" class="inframe_h100">
+            <h1>GAME OVER</h1>
+            <img src="../img/messon.jpg" alt="メッソン">
+            <!-- <button id="restart" class="btn-flat-border">はじめから</button> -->
+            <!-- <button id="save-and-return2">ポイント保存して最初に戻る</button> -->
+            <!-- <button id="restart3">ポイントリセットしてはじめから</button> -->
+        </div>
+
+
+
+        <!-- タイトルロゴ -->
+        <div id="scene020" class="inframe_h100">
+            <img src="../img/logo.png" alt="タイトルロゴ" class="logo_title">
+        </div>
+
+        <!-- 街をあるく -->
+        <div id="scene040" class="animated inframe_h100">
+            <img src="../img/walking_small.png" alt="街を歩く">
+        </div>
+
+        <!-- タイピング文字 -->
+        <div id="scene041">
+            <span class="">どんなポケモンにあえるかな？</span>
+        </div>
+
+        <!-- 野生のポケモン！ -->
+        <!-- <div id="scene050"> -->
+        <!-- <span class="scene51">野生のポケモンが飛び出してきた！</span><br> -->
+        <!-- <span><button id="checkpoke" class="btn-flat-border">かくにんする</button></span> -->
+        <!-- ランダムにポケモン選択 -->
+        <!-- </div> -->
+
+        <!-- モーダル -->
+        <div id="scene050" class="modal_wrapper inframe_h100">
+            <div class="modal_inside">
+
+                <p>野生のポケモンが飛び出してきた！</p><br>
+
+                <button id="checkpoke">かくにんする</button>
+
+            </div>
+        </div>
+
+
+        <div id="scene060" class="inframe_h100">
+            <div class="inframe_h80">
+                <h2 id="pokeappear">
+                    <!-- 野生の○○が現れた！ -->
+                </h2>
+                <img class="poke_img" src="" alt="画面1" class="scene061">
+            </div>
+
+            <div class="fight_or_not">
+                <span><button id="fight">ゲットする</button></span>
+                <span><button id="non_fight">ゲットしない</button></span>
+            </div>
+        </div>
+
+        <div id="scene070" class="inframe_h80">
+            <h2>どのボールを投げる？</h2>
+            <img class="poke_img" src="" alt="画面1" class="scene061">
+        </div>
+
+
+
+        <div id="scene070-2" class="ball_and_result inframe_h20">
+            <div id="monster_ball" class="ball_box">
+                <span>monster</span>
+                <img src="../img/monsterball_clear.png" alt="モンスターボール">
+                <p class="ball_last">残り<span id="monster_last">3</span></p>
+                </p>
+            </div>
+            <div id="super_ball" class="ball_box">
+                <span>super</span>
+                <img src="../img/superball.jpg" alt="スーパーボール">
+                <p class="ball_last">残り<span id="super_last">2</span></p>
+                </p>
+            </div>
+            <div id="hyper_ball" class="ball_box">
+                <span>hyper</span>
+                <img src="../img/hyperball.jpg" alt="ハイパーボール">
+                <p class="ball_last">残り<span id="hyper_last">1</span></p>
+                </p>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- <div id="result_box" class="get_or_not modal_wrapper inframe_h100"> -->
+        <!-- <div class="modal_inside"> -->
+        <!-- <span id="com_hand"> -->
+        <!-- 文字 -->
+        <!-- </span><br> -->
+        <!-- <span> -->
+        <!-- 結果は？ -->
+        <!-- </span> -->
+        <!-- <span id="result"></span> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+
+        <!-- 結果表示モーダル -->
+        <!-- <div id="result_box" class="modal_wrapper inframe_h100"> -->
+        <!-- <div class="modal_inside"> -->
+        <!-- <p id="com_hand"></p><br> -->
+        <!-- <img id="ball_shape" src="../img/black_ball.jpg" alt="ボールシルエット"> -->
+        <!-- <h1 id="result"></h1> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <div id="result_box1" class="modal_wrapper inframe_h100">
+            <div id='ball_rum' class="modal_inside ball_sil">
+                <!-- <p id="com_hand"></p><br> -->
+                <img id="ball_shape" src="../img/black_ball.jpg" alt="ボールシルエット">
+                <!-- <h1 id="result"></h1> -->
+            </div>
+        </div>
+
+        <div id="result_box2" class="modal_wrapper inframe_h100">
+            <div class="modal_inside">
+                <p id="com_hand"></p><br>
+                <!-- <img id="ball_shape" src="../img/black_ball.jpg" alt="ボールシルエット"> -->
+                <h1 id="result"></h1>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div id="poke_master" class="inframe_h100">
+            <div class="poke_master_imside">
+                <h1>おめでとう！</h1>
+                <h2>きみはポケモンマスターだ！</h2>
+                <img src="../img/satoshi.jpg" alt="サトシ">
+                <!-- <button id="restart2">はじめから</button> -->
+                <!-- <button id="save-and-return3">ポイント保存して最初に戻る</button> -->
+                <!-- <button id="restart4">ポイントリセットしてはじめから</button> -->
+            </div>
+        </div>
+
+
+
+
+
+    </ion-nav>
+
+
+
+    <!-- <div id="point_box" class="point_position"> -->
+    <!-- <p>ポイント: <span id="point">100</span></p> -->
+    <!-- </div> -->
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../JavaScript/smartpoke2.js"></script>
+</body>
+
+</html>
